@@ -1,0 +1,21 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        if(len(s)==0):
+            return(0)
+        if(s == " "):
+            return(1)
+        visited = []
+        di = {}
+        pos = 0
+        for i in range(len(s)):
+            if(s[i] in visited):
+                di['here'] = 1
+                di[s[pos:i]] = len(s[pos:i])
+                pos = pos + visited.index(s[i])+1
+                visited = visited[visited.index(s[i])+1:]
+            visited.append(s[i])
+            di[s[pos:i+1]] = len(s[pos:i+1])
+        return(max(di.values()))
+        
+        
+        
