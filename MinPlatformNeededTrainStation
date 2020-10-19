@@ -1,0 +1,22 @@
+#minimum platforms
+arr = [900,940,950,1100,1500,1800]
+dep = [910,1200,1120,1130,1900,2000]
+    
+arr = sorted(arr)
+dep = sorted(dep)
+
+max_platform = 1
+platform_needed = 1
+
+j=0
+i=1
+
+while(i<len(arr)):
+    if(dep[j]<arr[i]):
+        j += 1
+        max_platform -= 1
+    elif(arr[i]<dep[j]):
+        i += 1
+        max_platform += 1
+    platform_needed = max(platform_needed,max_platform)
+
