@@ -20,3 +20,4 @@ while(i<len(arr)):
         max_platform += 1
     platform_needed = max(platform_needed,max_platform)
 
+O(N+NlogN)
