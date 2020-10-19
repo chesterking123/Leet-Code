@@ -1,0 +1,16 @@
+#MoorsVotingAlgo
+arr = [10, 10, 20, 30, 10, 10]
+n = len(arr)//3
+
+count = 1
+element = arr[0]
+
+for i in range(1,len(arr)):
+    if(arr[i]==element):
+        count += 1
+    else:
+        count-=1
+    if(count<=0):
+        element = arr[i]
+
+print(element)
