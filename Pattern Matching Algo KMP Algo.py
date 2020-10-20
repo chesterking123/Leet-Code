@@ -1,27 +1,27 @@
 ###### KMP Algorithm ##########
 def KMPSearch(pat, txt): 
     
-	M = len(pat) 
-	N = len(txt) 
-	lps = [0]*M 
-  computeLPSArray(pat, M, lps) 
-	
-	i = 0
-	j = 0 
-
-	while i < N: 
-		if pat[j] == txt[i]: 
-			i += 1
-			j += 1
-		else:
-			if j != 0: 
-				j = lps[j-1] 
-			else: 
-				i += 1
-				
-		if j == M: 
-			print('Starting pos: ,'i-j) 
-			j = lps[j-1] 
+    M = len(pat) 
+    N = len(txt) 
+    lps = [0]*M 
+    lps = computeLPSArray(pat, M, lps) 
+    
+    i = 0
+    j = 0 
+    
+    while i < N: 
+        if pat[j] == txt[i]: 
+        	i += 1
+        	j += 1
+        else:
+        	if j != 0: 
+        		j = lps[j-1] 
+        	else: 
+        		i += 1
+        		
+        if j == M: 
+        	print('Starting pos: ',i-j) 
+        	j = lps[j-1] 
 
 def computeLPSArray(pat, M, lps): 
     
@@ -40,9 +40,8 @@ def computeLPSArray(pat, M, lps):
 			else: 
 				lps[i] = 0
 				i += 1
+	return lps
 
 txt = "onionionsdfwl"
 pat = "onions"
 KMPSearch(pat, txt) 
-
-    
